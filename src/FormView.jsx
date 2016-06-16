@@ -1,31 +1,34 @@
+import React from 'react';
+
 import BaseView from './BaseView';
-import util from '../../util/tool';
 
 export default class FormView extends BaseView {
     static propTypes = {
         ...BaseView.propTypes,
+
         draftInterval: React.PropTypes.number,
         uniqueName: React.PropTypes.string
     }
 
     static defaultProps = {
         ...BaseView.defaultProps,
-        draftInterval: 60,
-        uniqueName: ''
+
+        draftInterval: 60
     }
 
     constructor(...args) {
         super(...args);
 
-        this.submitSucceed = this.submitSucceed.bind(this);
         this.enableRecover = !!this.props.uniqueName;
 
         if (this.enableRecover) {
-            this._saveToLocal = this._saveToLocal.bind(this);
+            this.saveToLocal = this.saveToLocal.bind(this);
         }
+
+        this.submitSucceed = this.submitSucceed.bind(this);
     }
 
-    _saveToLocal() {
+    saveToLocal() {
         const data = this.getRecoverData();
 
         if (this.uniqueName && data) {
@@ -34,16 +37,16 @@ export default class FormView extends BaseView {
     }
 
     getUniqueName() {
-        return util.getUniqueName(this.props.uniqueName);
+        return this.props.uniqueName;
     }
 
     getRecoverData() {
         return this.refs.form && this.refs.form.getValues();
     }
 
-    // recover() {
-    //     return this.uniqueName && util.parseJson(localStorage.getItem(this.uniqueName));
-    // }
+    recover() {
+
+    }
 
     submitSucceed() {
         if (this.enableRecover) {
@@ -56,7 +59,7 @@ export default class FormView extends BaseView {
 
         if (this.enableRecover) {
             this.uniqueName = this.getUniqueName();
-            this.timer = setInterval(this._saveToLocal, this.props.draftInterval * 1000);
+            this.timer = setInterval(this.saveToLocal, this.props.draftInterval * 1000);
         }
     }
 

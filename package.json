@@ -1,9 +1,9 @@
 {
   "name": "react-er",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "title": "react-er",
   "main": "index.js",
-  "description": "ui components based on react",
+  "description": "enterprice framework based on react",
   "scripts": {
     "start": "node demo/http.server.js --debug --port 8080",
     "build": "webpack --progress --colors",
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "http://gitlab.baidu.com/bce-crm/react-er.git"
+    "url": "https://github.com/guoyao/react-er.git"
   },
   "license": "MIT",
   "dependencies": {

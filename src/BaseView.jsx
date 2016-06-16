@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 
-export default class BaseView extends Component {
+export default class BaseView extends React.Component {
     componentWillUnmount() {
         super.componentWillUnmount && super.componentWillUnmount();
         this.unmounted = true;
