@@ -1,6 +1,6 @@
-import BaseView from './BaseView';
+import View from './View';
 
-export default class DetailView extends BaseView {
+export default class DetailView extends View {
     fetchData() {
 
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class BaseView extends React.Component {
+export default class View extends React.Component {
     componentWillUnmount() {
         super.componentWillUnmount && super.componentWillUnmount();
         this.unmounted = true;

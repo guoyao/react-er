@@ -1,17 +1,17 @@
 import React from 'react';
 
-import BaseView from './BaseView';
+import View from './View';
 
-export default class FormView extends BaseView {
+export default class FormView extends View {
     static propTypes = {
-        ...BaseView.propTypes,
+        ...View.propTypes,
 
         draftInterval: React.PropTypes.number,
         uniqueName: React.PropTypes.string
     }
 
     static defaultProps = {
-        ...BaseView.defaultProps,
+        ...View.defaultProps,
 
         draftInterval: 60
     }
